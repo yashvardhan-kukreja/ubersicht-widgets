@@ -1,6 +1,6 @@
 command: "ps aux | awk '{cpu+=$3;mem+=$4} END {print cpu;print mem}'"
 
-refreshFrequency: 1000
+refreshFrequency: 2000
 
 render: (output) -> """
   <link rel="stylesheet" href="sys-monitor.widget/lib/epoch/epoch.min.css">
@@ -72,8 +72,8 @@ update: (output, domEl) ->
     ]) if @chart?
 
 style: """
-  top: 550px
-  right: 30px
+  top: 560px
+  right: 27px
 
   *
     box-sizing: border-box
