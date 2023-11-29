@@ -11,7 +11,7 @@ style: """
 
   // Position this where you want
   top  465px
-  left 1365px
+  right 27px
 
   // Statistics text settings
   color #fff
@@ -21,7 +21,7 @@ style: """
   border-radius 5px
 
   .container
-    width: 300px
+    width: 320px
     text-align: widget-align
     position: relative
     clear: both
