@@ -10,8 +10,8 @@ style: """
   widget-align = left
 
   // Position this where you want
-  top 27px
-  left 10px
+  top  465px
+  left 1365px
 
   // Statistics text settings
   color #fff
@@ -21,7 +21,7 @@ style: """
   border-radius 5px
 
   .container
-    width: 290px
+    width: 300px
     text-align: widget-align
     position: relative
     clear: both
@@ -30,7 +30,7 @@ style: """
     text-align: widget-align
 
   .stats-container
-    margin-bottom 5px
+    margin-bottom 10px
     border-collapse collapse
 
   td
@@ -87,12 +87,16 @@ style: """
 
   .bar-cpuTemp
     background: rgba(#c00, .5)
+  .bar-gpuTemp
+    background: rgba(#c00, .5)
+  .gpuTemp
+    margin-right 20px
 """
 
 
 render: -> """
   <div class="container">
-    <div class="widget-title">Fans</div>
+    <div class="widget-title"></div>
     <table class="stats-container" width="115%">
       <tr>
         <td class="stat"><span class="left"></span></td>
@@ -100,13 +104,15 @@ render: -> """
         <td class="stat"><span class="right"></span></td>
         <td class="stat"><span class="rightPercent"></span></td>
         <td class="stat"><span class="cpuTemp"></span></td>
+        <td class="stat"><span class="gpuTemp"></span></td>
       </tr>
       <tr>
-        <td class="label">Left</td>
+        <td class="label">Left Fan</td>
         <td class="label">%</td>
-        <td class="label">Right</td>
+        <td class="label">Right Fan</td>
         <td class="label">%</td>
         <td class="label">CPU</td>
+        <td class="label">GPU</td>
       </tr>
     </table>
     <div class="bar-container">
@@ -115,6 +121,7 @@ render: -> """
       <div class="bar bar-right"></div>
       <div class="bar bar-rightPercent"></div>
       <div class="bar bar-cpuTemp"></div>
+      <div class="bar bar-gpuTemp"></div>
     </div>
   </div>
 """
@@ -139,12 +146,14 @@ update: (output, domEl) ->
   rightPercent = result[3]
 
   cpuTemp = result[4]
+  gpuTemp = result[5]
 
   updateStat 'left', left
   updateStat 'right', right
   updateStat 'leftPercent', leftPercent
   updateStat 'rightPercent', rightPercent
   updateStat 'cpuTemp', cpuTemp
+  updateStat 'gpuTemp', gpuTemp
 
   updateBar 'rightPercent' , rightPercent
   updateBar 'leftPercent' , leftPercent
