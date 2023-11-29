@@ -1,4 +1,4 @@
-command: "./fan-bar.widget/script.sh"
+command: "./system-monitor.widget/script.sh"
 
 refreshFrequency: 2000
 
@@ -96,7 +96,7 @@ style: """
 
 render: -> """
   <div class="container">
-    <div class="widget-title"></div>
+    <div class="widget-title">System Monitor</div>
     <table class="stats-container" width="115%">
       <tr>
         <td class="stat"><span class="left"></span></td>
